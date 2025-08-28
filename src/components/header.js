@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import "C:/Users/user/Desktop/combatX/src/styles/header.css";
 import logo from "../image/combatXblack.jpg";
 import { Link } from "react-router-dom";
+import "../styles/header.css";
+
 
 import { FaShoppingCart } from "react-icons/fa";
 import "../styles/header.css";
