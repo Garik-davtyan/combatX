@@ -1,0 +1,75 @@
+:root{
+  --muted:#f6f6f6;
+}
+.cart-page{padding:20px}
+.cart-list{display:grid;gap:12px}
+.cart-item{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid #eee;border-radius:8px}
+.cart-item-img{width:120px;height:120px;object-fit:cover;border-radius:6px}
+.cart-item-body{flex:1}
+.cart-item-controls{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.cart-qty{display:flex;align-items:center;gap:8px}
+.qty-btn{width:32px;height:32px}
+.qty-value{min-width:28px;text-align:center}
+.cart-item-sum{font-weight:700}
+.cart-remove-btn{background:transparent;border:none;color:#c10d18;cursor:pointer}
+.cart-clear-btn{padding:8px 12px}
+.cart-checkout-btn{padding:8px 12px;background:#181818;color:#fff;border:none}
+
+/* Адаптив для мобильных */
+@media (max-width: 600px){
+  .cart-item{flex-direction:row;align-items:flex-start;padding:10px}
+  .cart-item-img{width:84px;height:160px}
+  .cart-item-body{min-width:0}
+  .cart-item-title{font-size:14px}
+  .cart-item-controls{align-items:flex-end;gap:6px}
+  .cart-item-sum{font-size:14px}
+  .cart-hero{ margin-top: 24px; height: 120px }
+  .cart-qty .qty-btn{width:28px;height:28px}
+}
+
+/* Ещё компактнее для очень маленьких экранов */
+@media (max-width: 420px){
+  .cart-item{flex-direction:column;align-items:flex-start}
+  .cart-item-controls{width:100%;justify-content:space-between;flex-direction:row}
+  .cart-item-img{width:100%;height:260px;border-radius:6px}
+  .cart-item-body{width:100%}
+  .cart-item-sum{order:3}
+  .cart-hero{ height: 90px; margin-top: 18px }
+}
+
+/* full-bleed hero logo */
+.cart-hero{
+  width: 100vw;
+  object-fit: cover;
+  display: block;
+  margin-left: calc(50% - 50vw);
+  margin-top: 6px;
+  height: 320px; /* desktop height */
+}
+
+/* Contact modal */
+.contact-modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;z-index:2200;padding:20px
+}
+.contact-modal{
+  width:100%;max-width:520px;background:#fff;border-radius:12px;padding:20px;position:relative;box-shadow:0 8px 30px rgba(0,0,0,0.2);font-family:inherit;color:#111
+}
+.contact-close{position:absolute;right:12px;top:8px;border:none;background:transparent;font-size:26px;cursor:pointer}
+.contact-modal h3{margin:0 0 8px 0;font-size:20px}
+.contact-sub{margin:0 0 12px;color:#666}
+.contact-list{display:grid;gap:10px}
+.contact-item{display:flex;flex-direction:column;padding:12px;border-radius:8px;background:var(--muted);text-decoration:none;color:inherit}
+.contact-item .contact-desc{font-size:12px;color:#666;margin-top:6px}
+.contact-item.whatsapp{border-left:4px solid #25D366}
+.contact-item.viber{border-left:4px solid #7B5195}
+.contact-item.telegram{border-left:4px solid #2AABEE}
+.contact-item.phone{border-left:4px solid #c10d18}
+.contact-item.email{border-left:4px solid #444}
+.contact-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
+.contact-copy{background:#181818;color:#fff;border:none;padding:8px 12px;border-radius:8px;cursor:pointer}
+.contact-close-btn{background:transparent;border:1px solid #ccc;padding:8px 12px;border-radius:8px;cursor:pointer}
+
+@media (max-width:420px){
+  .contact-modal{padding:14px}
+  .contact-item{padding:10px}
+}

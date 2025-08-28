@@ -1,0 +1,218 @@
+/* Ссылки брендов как обычный текст */
+.footer-brands-list a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.footer-brands-list a:hover {
+    text-decoration: underline;
+    color: #222;
+}
+.footer-address {
+    font-size: 1rem;
+    color: #f6f6f6; /* changed from #fff */
+    margin-bottom: 8px;
+}
+/* Красивый адаптивный футер для Sporterra */
+.footer {
+    width: 100%;
+    background: #181818; /* dark footer */
+    color: #f6f6f6;
+    padding: 18px 0 12px 0; /* меньше высота футера */
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.footer-main {
+    text-align: center;
+    margin-bottom: 30px;
+    display:flex;
+    gap:20px;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+.footer-title {
+    display:inline-block;
+    font-size:2.2rem;
+    font-weight:700;
+    letter-spacing:0.12em;
+    margin-bottom:8px;
+    color:#ffffff;
+    position:relative;
+}
+.footer-title .footer-x {
+    color: #c10d18;
+    margin-left:6px;
+    font-size:1.03em;
+}
+
+@keyframes sporterra-gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Глиттер-эффект */
+.footer-title::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    pointer-events: none;
+    background: url('https://www.transparenttextures.com/patterns/glitter.png');
+    opacity: 0.06;
+    mix-blend-mode: screen;
+    z-index: 1;
+}
+
+.footer-desc {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+.footer-contact {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+.footer-contact a { color: #f6f6f6; }
+
+.footer-brands {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Социальные кнопки */
+.footer-social {
+  display:flex;
+  gap:8px; /* меньше расстояние */
+  justify-content:center;
+  align-items:center;
+  margin-top:8px;
+  margin-bottom:6px;
+  flex-direction: row; /* horizontal */
+}
+
+/* Мобильный дубликат соцсетей: по дефолту скрыт на десктопе */
+.footer-social-mobile{display:none}
+.footer-btn{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:6px;
+  text-decoration:none;
+  color:#181818; /* label text black */
+  background:#ffffff; /* white button background */
+  font-weight:600;
+  font-size:0.95rem;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.footer-inst, .footer-tiktok, .footer-whatsapp, .footer-viber, .footer-mail { background: #ffffff; color: #181818; }
+.footer-social .footer-btn,
+.footer-orders .footer-whatsapp,
+.footer-orders .footer-viber {
+  padding:6px 8px; /* более компактные кнопки */
+  font-size:0.9rem;
+  min-width: auto;
+}
+
+/* Увеличенные и с отступами кнопки для соцсетей и контактов */
+.footer-social .footer-btn,
+.footer-contacts .footer-btn,
+.footer-orders .footer-btn {
+  margin: 0 8px; /* отступы слева/справа 5-10px (8px по умолчанию) */
+  padding: 8px 14px; /* чуть больше по высоте и ширине */
+  font-size: 1rem; /* чуть крупнее текста */
+  min-width: 110px; /* более крупные кнопки */
+  border-radius: 8px;
+}
+
+/* Секция заказов */
+.footer-orders{ display:flex; gap:8px; justify-content:center; align-items:center; margin-top:8px; }
+.footer-orders-title{ color: #f6f6f6; margin-right:6px; font-weight:600; font-size:0.95rem; }
+
+.footer-brands-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.footer-brands-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+.footer-brands-list li {
+    font-size: 1rem;
+    color: #f6f6f6; /* changed from #fff */
+    background: #232323;
+    border-radius: 6px;
+    padding: 6px 18px;
+    margin-bottom: 6px;
+    box-shadow: 0 2px 8px #0002;
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #f6f6f6; /* changed from #fff */
+    opacity: 0.7;
+    margin-top: 18px;
+}
+
+/* Небольшие отступы сверху для секций и рядов кнопок (5-10px) */
+.footer-left .footer-section-title,
+.footer-center .footer-contact,
+.footer-right .footer-section-title,
+.footer-social,
+.footer-contacts-top,
+.footer-contacts-bottom {
+  margin-top: 8px; /* 8px — между 5 и 10px */
+}
+
+/* Если нужно чуть меньше на мобильных, можно уменьшить */
+@media (max-width: 600px) {
+    .footer {
+        padding: 24px 0 12px 0;
+    }
+    /* Меньший заголовок на телефонах */
+    .footer-title {
+        font-size: 1.4rem; /* ещё меньше на телефоне */
+        margin-bottom: 6px;
+    }
+    .footer-brands-list {
+        gap: 10px;
+    }
+    .footer-brands-list li {
+        font-size: 0.95rem;
+        padding: 5px 10px;
+    }
+
+    /* Мобильная верстка: складываем в колонку */
+    .footer-main { flex-direction: column; align-items: center; text-align: center; gap:10px; margin-bottom:12px; }
+    /* переставляем порядок, чтобы содержимое было компактным */
+    .footer-title { order: 1; }
+    .footer-desc { order: 2; font-size: 0.95rem; }
+    .footer-contact { order: 3; font-size: 0.95rem; }
+    /* Показываем мобильный блок соцсетей после центра и скрываем старый в .footer-left */
+    .footer-social { order: 4; }
+    .footer-social-mobile { display:block; order: 4; }
+    .footer-left .footer-social { display:none }
+    /* Скрываем заголовок «Наши соц. сети» слева на мобильных — он дублируется в .footer-social-mobile */
+    .footer-left .footer-section-title { display: none; }
+    .footer-social-mobile .footer-section-title { display: block; margin-bottom:6px; }
+    .footer-orders { order: 5; }
+
+    /* Социальные кнопки и кнопки заказов — делаем горизонтальными на мобильных */
+    .footer-social { flex-direction: row; gap:8px; width: auto; align-items: center; justify-content: center; }
+    .footer-orders { flex-direction: row; gap:8px; width: auto; align-items: center; justify-content: center; }
+
+    /* Кнопки компактные и не во всю ширину */
+    .footer-btn { width: auto; min-width: 88px; padding:6px 10px; }
+    .footer-orders .footer-orders-title{ font-size:0.9rem; margin-right:6px; }
+
+    .footer-social,
+    .footer-contacts-top,
+    .footer-contacts-bottom { margin-top: 6px; }
+}

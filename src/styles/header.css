@@ -1,0 +1,512 @@
+/* --- Мобильное меню и бургер --- */
+.burger-menu {
+  display: none;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80vw;
+  max-width: 350px;
+  height: 100vh;
+  background: #f6f6f6; /* changed from #fff */
+  box-shadow: -2px 0 16px rgba(0,0,0,0.08);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+  overflow-y: auto;
+  padding-top: 60px;
+}
+.mobile-menu.open {
+  display: block;
+  transform: translateX(0);
+}
+@media (max-width: 900px) {
+  .menu-bar {
+    display: none !important;
+  }
+  .burger-menu {
+    display: flex !important;
+  }
+  
+}
+@media (min-width: 901px) {
+  .mobile-menu {
+    display: none !important;
+  }
+  .burger-menu {
+    display: none !important;
+  }
+}
+
+/* Сделать десктопные выпадающие меню шире только на больших экранах */
+@media (min-width: 901px) {
+  .dropdown-content {
+    min-width: 260px !important; /* более широкий основной dropdown */
+    max-width: 420px !important;
+    padding: 12px 10px !important;
+  }
+  /* small-dropdown чаще используется для компактных подменю — увеличить до комфортной ширины */
+  .small-dropdown {
+    min-width: 180px !important;
+    max-width: 300px !important;
+  }
+  .menu-bar {
+    gap: 28px; /* чуть больше расстояния между пунктами на десктопе */
+  }
+}
+
+/* Stronger override to ensure desktop dropdowns are wide enough */
+@media (min-width: 901px) {
+  .header1 .menu-bar .menu-dropdown .dropdown-content {
+    min-width: 360px !important;
+    max-width: 520px !important;
+    box-sizing: border-box !important;
+    padding: 14px 12px !important;
+  }
+  .header1 .menu-bar .menu-dropdown .small-dropdown {
+    min-width: 220px !important;
+    max-width: 360px !important;
+  }
+}
+/* Стили для мобильного выпадающего меню */
+.mobile-dropdown-btn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 14px 20px;
+  font-size: 1.1em;
+  color: #222;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.2s;
+}
+.mobile-dropdown-btn[aria-expanded="true"] {
+  background: #f0f0f0;
+}
+.mobile-dropdown-content {
+  background: #111 !important;
+  color: #f6f6f6; /* changed from #fff */
+  padding: 0 0 10px 10px;
+  box-shadow: none;
+  border-left: 2px solid #eee;
+  margin-bottom: 10px;
+}
+.mobile-dropdown-content .menu-btn {
+  color: #f6f6f6 !important; /* changed from #fff */
+  border-bottom: 1px solid #f6f6f6; /* changed from #fff */
+}
+.mobile-dropdown-content .menu-btn:last-child {
+  border-bottom: none;
+}
+.mobile-dropdown-content .menu-btn:hover {
+  background: #181818 !important; /* changed from #000 */
+  color: #c10d18 !important;
+}
+/* --- Бургер-меню для мобильных --- */
+.burger-menu {
+  display: none;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.burger-lines {
+  width: 28px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.burger-line {
+  height: 4px;
+  border-radius: 2px;
+  background: #222;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+/* Мобильное меню (выезжает по диагонали) */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80vw;
+  max-width: 320px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -8px 0 32px rgba(0,0,0,0.18);
+  z-index: 999;
+  transform: translate(100%, -100%) scale(0.8);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(.77,0,.18,1), opacity 0.25s;
+  border-radius: 0 0 0 32px;
+  padding: 32px 18px 18px 18px;
+}
+.mobile-menu.open {
+  display: block;
+  transform: translate(0, 0) scale(1);
+  opacity: 1;
+}
+.mobile-menu .menu-btn {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  font-size: 18px;
+  padding: 12px 0;
+  border-radius: 12px;
+  background: none;
+  color: #222;
+  text-align: left;
+}
+.mobile-menu .menu-btn:hover {
+  background: #181818;
+  color: #c10d18;
+}
+* {
+  font-family: "martel", Arial, sans-serif;
+}
+/* Контейнер для поиска — адаптивный */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 160px;
+  width: 100%;
+}
+/* Выпадающее меню для 'Женское' */
+.menu-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    min-width: 220px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 10;
+    border-radius: 0 0 10px 10px;
+    padding: 8px 0;
+}
+.menu-dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+.dropdown-content .menu-btn {
+    width: 100%;
+    text-align: left;
+    padding: 8px 16px;
+    background: none;
+    color: #000;
+    border: none;
+    border-radius: 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    box-sizing: border-box;
+}
+.dropdown-content .menu-btn:hover {
+    background: #181818;
+    color: #c10d18;
+}
+.header1 {
+    height: 80px;
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 20px;
+    background: #c10d18;
+    
+}
+
+.logo1 {
+    /* слегка увеличенное лого */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 16px;
+    background: none;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.menu-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+    padding-left: 0;
+}
+
+/* Сделать заголовки разделов (топ-левел) полужирными на десктопе и мобильных */
+.menu-bar > .menu-btn.menu-dropdown {
+  font-weight: 700;
+}
+
+.menu-btn {
+    background: none;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    border-radius: 20px;
+    box-sizing: border-box;
+    text-decoration: none !important;
+}
+.menu-btn:hover {
+    background: #181818;
+    color: #c10d18;
+    border-radius: 20px;
+    text-decoration: none !important;
+}
+
+  .dropdown-content .menu-btn {
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 7px;
+    text-decoration: none !important;
+    border-bottom: 1px solid #f6f6f6; /* changed from #fff */
+  }
+
+.dropdown-content .menu-btn:last-child {
+    border-bottom: none;
+}
+/* Allow hover to open dropdown on desktop even if JS adds d-none */
+@media (min-width: 901px) {
+  .menu-dropdown:hover .dropdown-content.d-none {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  /* also open when focusing (keyboard) */
+  .menu-dropdown:focus-within .dropdown-content.d-none {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+  .logo1 {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  .menu-bar {
+    gap: 10px;
+  }
+.small-dropdown {
+    min-width: 70px !important;
+    max-width: 110px !important;
+    min-height: 0 !important;
+    padding: 4px 0 !important;
+    border-radius: 0 0 8px 8px !important;
+}
+.d-none {
+    display: none !important;
+}
+/* Крупные кнопки меню только на десктопе */
+.menu-btn {
+    padding: 8px 16px;
+    font-size: 16px;
+}
+  .search-input {
+    padding: 5px 28px 5px 8px;
+    min-width: 60px;
+    max-width: 100px;
+    width: 100%;
+    font-size: 12px;
+    border-radius: 12px;
+  }
+  .search-icon {
+    font-size: 14px !important;
+  }
+
+
+@media (max-width: 480px) {
+  .menu-bar {
+    display: none !important;
+  }
+  .header1 {
+    height: 64px; /* increased height for better tap targets */
+    background: #c10d18;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px; /* a bit more horizontal padding */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1202;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  /* Добавляем отступ у содержимого страниц, чтобы фиксированный хедер не перекрывал его */
+  .page-container,
+  .main1 {
+    padding-top: 64px; /* компенсируем фиксированный header */
+  }
+  .logo1 {
+    width: 56px;
+    height: 56px;
+    margin-right: 10px;
+    border-radius: 70%;
+    object-fit: cover;
+  }
+  .header-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    margin-right: 0;
+    position: static;
+  }
+  .burger-menu {
+    display: flex !important;
+    margin-left: 8px;
+    position: static;
+    right: 0;
+    top: auto;
+    transform: none;
+    z-index: 1201;
+  }
+  .mobile-menu {
+    display: block;
+    padding-top: 80px; /* ensure mobile menu content is visible below taller header */
+  }
+  .mobile-menu .menu-btn {
+    display: block;
+    font-size: 18px; /* larger touch target */
+    padding: 14px 12px;
+    border-radius: 8px;
+  font-weight: 700; /* make top-level mobile labels bold */
+  }
+  .dropdown-content {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    min-width: 120px;
+    min-height: 140px;
+    padding: 12px 0 12px 0;
+    border-radius: 0 0 8px 8px;
+  }
+  .dropdown-content .menu-btn {
+    font-size: 14px !important;
+    padding: 6px 10px !important;
+    border-radius: 6px !important;
+    width: 100%;
+    min-width: 70px;
+  }
+  .search-container {
+    flex-shrink: 1;
+    min-width: 0;
+    max-width: 100%;
+    width: auto;
+  }
+  .search-input {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .search-icon {
+    font-size: 14px !important;
+  }
+}
+
+
+
+.mobile-menu .menu-btn,
+.mobile-menu .menu-btn:hover,
+.mobile-dropdown-content .menu-btn,
+.mobile-dropdown-content .menu-btn:hover {
+  border-radius: 0 !important;
+}
+@media (max-width: 480px) {
+  .dropdown-content .menu-btn {
+    border-radius: 0 !important;
+  }
+}
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: auto;
+  z-index: 1200;
+}
+.header-icon-link {
+  color: #222;
+  margin-left: 8px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+.header-icon-link:hover {
+  color: #f6f6f6 !important; /* changed from #fff */
+}
+@media (max-width: 900px) {
+  .header-icons {
+    margin-left: auto;
+    margin-right: 8px;
+    gap: 14px;
+  }
+}
+
+/* Language switch styles */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lang-switch button {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+.lang-switch button:hover {
+  background: #222;
+  color: #c10d18;
+}
+
+@media (max-width: 480px) {
+  .lang-switch {
+    gap: 4px;
+    margin-left: 6px;
+  }
+  .lang-switch button {
+    padding: 4px;
+    border-radius: 4px !important;
+    font-size: 14px;
+  }
+}
